@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>one test</title>
+    <script src="../src/dist/blockly_compressed.js"></script>
+    <script src="../src/dist/blocks_compressed.js"></script>
+    <script src="../src/dist/zh-hans.js"></script>
+</head>
+<body>
+    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <xml id="toolbox" style="display: none">
+        <block type="math_number"></block>
+        <block type="controls_if"></block>
+        <block type="controls_whileUntil"></block>
+    </xml>
+    <script>
+        const workspace = Blockly.inject('blocklyDiv',
+            { toolbox: document.getElementById('toolbox') });
+    </script>
+</body>
+</html>

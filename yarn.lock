@@ -988,6 +988,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+blockly@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/blockly/-/blockly-1.0.0.tgz#db14ce06cf6a9f3ea0e5b21c11ca89da6af461e8"
+
 bluebird@^3.4.7:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
@@ -2578,7 +2582,7 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-fsevents@1.1.2, fsevents@^1.0.0:
+fsevents@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.1.2.tgz#3282b713fb3ad80ede0e9fcf4611b5aa6fc033f4"
   dependencies:
@@ -2950,6 +2954,10 @@ ieee754@^1.1.4:
 ignore@^3.2.0:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.3.tgz#432352e57accd87ab3110e82d3fea0e47812156d"
+
+immutable@^3.7.6:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -3819,7 +3827,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4042,6 +4050,13 @@ no-case@^2.2.0:
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
   dependencies:
     lower-case "^1.1.1"
+
+node-blockly@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/node-blockly/-/node-blockly-1.0.21.tgz#7cb18a9350b5e9754a4dd627cb042c04372617c6"
+  dependencies:
+    lodash "^4.17.4"
+    xmldom "^0.1.22"
 
 node-fetch@^1.0.1:
   version "1.7.1"
@@ -4889,6 +4904,14 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-blockly-component@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-blockly-component/-/react-blockly-component-2.0.1.tgz#366a02d090107c7c93a748369e7a0eb1d2d4ae07"
+  dependencies:
+    immutable "^3.7.6"
+    react-immutable-proptypes "^2.1.0"
+    react-immutable-render-mixin "^0.9.5"
+
 react-dev-utils@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-3.0.2.tgz#1a42263e9b6aa11dcb45d69dfe5eb1b354bd5531"
@@ -4912,7 +4935,7 @@ react-dev-utils@^3.0.2:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@15.6.1:
+react-dom@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -4932,50 +4955,15 @@ react-error-overlay@^1.0.9:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-scripts@1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.10.tgz#876035594742220f40ffb865a4c7e8dc0fa7ae23"
-  dependencies:
-    autoprefixer "7.1.1"
-    babel-core "6.25.0"
-    babel-eslint "7.2.3"
-    babel-jest "20.0.3"
-    babel-loader "7.0.0"
-    babel-preset-react-app "^3.0.1"
-    babel-runtime "6.23.0"
-    case-sensitive-paths-webpack-plugin "2.1.1"
-    chalk "1.1.3"
-    css-loader "0.28.4"
-    dotenv "4.0.0"
-    eslint "3.19.0"
-    eslint-config-react-app "^1.0.5"
-    eslint-loader "1.7.1"
-    eslint-plugin-flowtype "2.34.0"
-    eslint-plugin-import "2.2.0"
-    eslint-plugin-jsx-a11y "5.0.3"
-    eslint-plugin-react "7.1.0"
-    extract-text-webpack-plugin "2.1.2"
-    file-loader "0.11.2"
-    fs-extra "3.0.1"
-    html-webpack-plugin "2.29.0"
-    jest "20.0.4"
-    object-assign "4.1.1"
-    postcss-flexbugs-fixes "3.0.0"
-    postcss-loader "2.0.6"
-    promise "7.1.1"
-    react-dev-utils "^3.0.2"
-    react-error-overlay "^1.0.9"
-    style-loader "0.18.2"
-    sw-precache-webpack-plugin "0.11.3"
-    url-loader "0.5.9"
-    webpack "2.6.1"
-    webpack-dev-server "2.5.0"
-    webpack-manifest-plugin "1.1.0"
-    whatwg-fetch "2.0.3"
-  optionalDependencies:
-    fsevents "1.1.2"
+react-immutable-proptypes@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.1.0.tgz#023d6f39bb15c97c071e9e60d00d136eac5fa0b4"
 
-react@15.6.1:
+react-immutable-render-mixin@^0.9.5:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/react-immutable-render-mixin/-/react-immutable-render-mixin-0.9.7.tgz#fe34053760cc72e7becc8af3e6e30542d97d3601"
+
+react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -6281,6 +6269,10 @@ xml-char-classes@^1.0.0:
 xml-name-validator@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-2.0.1.tgz#4d8b8f1eccd3419aa362061becef515e1e559635"
+
+xmldom@^0.1.22:
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
 
 xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"
