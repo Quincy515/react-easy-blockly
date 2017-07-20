@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<head>
+  <script type="text/javascript" src="../core/static/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.5" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $('.fancybox').fancybox();
+      });
+  </script>
+  <script src="../core/blockly_compressed.js"></script>
+  <script src="../core/blocks_compressed.js"></script>
+
+  <script src="../core/js/p5.js"></script>
+  <script src="../core/static/en.js"></script>
+  <script src="../core/static/javascript_compressed.js"></script>
+  <script src="../core/static/prettify.js"></script>
+  <script src="../core/static/acorn_interpreter.js"></script>
+
+  <script src="../core/static/yak.js"></script>
+  <link href="../style/prettify.css" rel="stylesheet">
+  <link href="../style/blockly-demo.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-container">
+  <div id="blocklyDiv" class="main blockly-panel"></div>
+  <div id="codeDiv" class="main output-panel">
+    <div class="dropdown-bar">
+      Language:
+      <div id="im-just-an-underline">
+        <select id="languageDropdown" onChange="myUpdateFunction();">
+          <option value="JavaScript">JavaScript</option>
+        </select>
+      </div>
+    </div>
+    <hr class="POps">
+    <pre></pre>
+  </div>
+  <a  class="fancybox" href="#sketchFrame" data-fancybox-group="gallery"
+      title="Your creations are awesome">
+    <iframe id="sketchFrame"
+            src="../core/_sketch.html" width="800px" height="600px">
+    </iframe>
+    <div id="playButton" class="play-button material-icons">play_arrow</div>
+  </a>
+</div>
+<xml id="toolbox" style="display: none">
+  <category name="YaK Start" colour="220">
+    <block type="yak_structure_setup"></block>
+    <block type="yak_structure_draw"></block>
+    <block type="yak_rendering_createCanvas">
+      <value name="v_width">
+        <block type="math_number">
+          <field name="NUM">710</field>
+        </block>
+      </value>
+      <value name="v_height">
+        <block type="math_number">
+          <field name="NUM">700</field>
+        </block>
+      </value>
+    </block>
+    <block type="yak_rendering_createCanvas3D">
+      <value name="v_width">
+        <block type="math_number">
+          <field name="NUM">710</field>
+        </block>
+      </value>
+      <value name="v_height">
+        <block type="math_number">
+          <field name="NUM">700</field>
+        </block>
+      </value>
+    </block>
+    <block type="yak_structure_preload"></block>
+    <block type="yak_environment_frameRate">
+      <value name="v_frameRate">
+        <block type="math_number">
+          <field name="NUM">60</field>
+        </block>
+      </value>
+    </block>
+    <block type="yak_environment_frameCount"></block>
+    <block type="yak_environment_noCursor"></block>
+  </category>
+  <category name="YaK Move" colour="200">
+    <block type="yak_structure_push"></block>
+    <block type="yak_structure_pop"></block>
+    <block type="yak_IO_millis"></block>
+    <block type="yak_shape_ellipseMode"></block>
+    <block type="yak_shape_rectMode"></block>
+    <block type="yak_transform_translate">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">40</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">20</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_transform_rotate_new">
+      <value name="v_x">
+        <block type="math_arithmetic">
+          <value name="A">
+            <block type="yak_constants"></block>
+          </value>
+          <value name="B">
+            <shadow type="math_number">
+              <field name="NUM">12</field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+    </block>
+    <block type="yak_math_map"></block>
+    <block type="yak_transform_translate3">
+      <value name="v_x">
+        <block type="math_number">
+          <field name="NUM">240</field>
+        </block>
+      </value>
+      <value name="v_y">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="v_z">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="yak_transform_rotateX"></block>
+    <block type="yak_transform_rotateY"></block>
+    <block type="yak_transform_rotateZ"></block>
+  </category>
+  <category name="YaK Shape" colour="40">
+    <block type="yak_shape_beginShape"></block>
+    <block type="yak_shape_endShape"></block>
+    <block type="yak_shape_curveVertex"></block>
+    <block type="yak_shape_point">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">240</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">60</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_line">
+      <value name="position_x">
+        <shadow type="math_number">
+          <field name="NUM">20</field>
+        </shadow>
+      </value>
+      <value name="position_y">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">420</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">110</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_ellipse">
+      <value name="position_x">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="position_y">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">24</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">24</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_triangle">
+      <value name="position_x">
+        <shadow type="math_number">
+          <field name="NUM">300</field>
+        </shadow>
+      </value>
+      <value name="position_y">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">320</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">310</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">80</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_rect">
+      <value name="x">
+        <shadow type="math_number">
+          <field name="NUM">150</field>
+        </shadow>
+      </value>
+      <value name="y">
+        <shadow type="math_number">
+          <field name="NUM">140</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">120</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_rect"></block>
+    <block type="yak_shape_plane"></block>
+    <block type="yak_shape_box"></block>
+    <block type="yak_shape_sphere"></block>
+    <block type="yak_shape_cylinder"></block>
+    <block type="yak_shape_cone"></block>
+    <block type="yak_shape_ellipsoid"></block>
+    <block type="yak_shape_torus"></block>
+    <block type="yak_shape_rect5">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">150</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">140</field>
+        </shadow>
+      </value>
+      <value name="v_w">
+        <shadow type="math_number">
+          <field name="NUM">120</field>
+        </shadow>
+      </value>
+      <value name="v_h">
+        <shadow type="math_number">
+          <field name="NUM">130</field>
+        </shadow>
+      </value>
+      <value name="v_a">
+        <shadow type="math_number">
+          <field name="NUM">20</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_rect8">
+      <value name="v_a">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="v_b">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="v_c">
+        <shadow type="math_number">
+          <field name="NUM">25</field>
+        </shadow>
+      </value>
+      <value name="v_d">
+        <shadow type="math_number">
+          <field name="NUM">25</field>
+        </shadow>
+      </value>
+      <value name="v_e">
+        <shadow type="math_number">
+          <field name="NUM">3</field>
+        </shadow>
+      </value>
+      <value name="v_f">
+        <shadow type="math_number">
+          <field name="NUM">15</field>
+        </shadow>
+      </value>
+      <value name="v_g">
+        <shadow type="math_number">
+          <field name="NUM">3</field>
+        </shadow>
+      </value>
+      <value name="v_h">
+        <shadow type="math_number">
+          <field name="NUM">15</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_quad">
+      <value name="position_x">
+        <shadow type="math_number">
+          <field name="NUM">38</field>
+        </shadow>
+      </value>
+      <value name="position_y">
+        <shadow type="math_number">
+          <field name="NUM">31</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">86</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">20</field>
+        </shadow>
+      </value>
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">69</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">63</field>
+        </shadow>
+      </value>
+      <value name="v_z">
+        <shadow type="math_number">
+          <field name="NUM">30</field>
+        </shadow>
+      </value>
+      <value name="v_w">
+        <shadow type="math_number">
+          <field name="NUM">76</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_shape_arc">
+      <value name="position_x">
+        <shadow type="math_number">
+          <field name="NUM">210</field>
+        </shadow>
+      </value>
+      <value name="position_y">
+        <shadow type="math_number">
+          <field name="NUM">132</field>
+        </shadow>
+      </value>
+      <value name="width">
+        <shadow type="math_number">
+          <field name="NUM">120</field>
+        </shadow>
+      </value>
+      <value name="height">
+        <shadow type="math_number">
+          <field name="NUM">120</field>
+        </shadow>
+      </value>
+      <value name="v_x">
+        <block type="yak_constants"></block>
+      </value>
+      <value name="v_y">
+        <block type="math_arithmetic">
+          <value name="A">
+            <shadow type="math_number">
+              <field name="NUM">2</field>
+            </shadow>
+
+          </value>
+          <value name="B">
+            <block type="yak_constants"></block>
+          </value>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="YaK Color" colour="255">
+    <block type="yak_shape_smooth"></block>
+    <block type="yak_color_stroke"></block>
+    <block type="yak_color_stroke4"></block>
+    <block type="yak_color_strokeWeight"></block>
+    <block type="yak_color_noStroke"></block>
+    <block type="yak_color_noFill"></block>
+    <block type="yak_color_background_color">
+      <value name="v_background">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_color_background">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">255</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">255</field>
+        </shadow>
+      </value>
+      <value name="v_z">
+        <shadow type="math_number">
+          <field name="NUM">255</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_color_color3">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">255</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">204</field>
+        </shadow>
+      </value>
+      <value name="v_z">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_color_fill">
+      <value name="v_fill">
+        <shadow type="math_number">
+          <field name ="NUM">120</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_color_fillRGB">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">255</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">204</field>
+        </shadow>
+      </value>
+      <value name="v_z">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_color_fill4"></block>
+    <block type="yak_color_stroke3">
+      <value name="v_x">
+        <shadow type="math_number">
+          <field name="NUM">226</field>
+        </shadow>
+      </value>
+      <value name="v_y">
+        <shadow type="math_number">
+          <field name="NUM">235</field>
+        </shadow>
+      </value>
+      <value name="v_z">
+        <shadow type="math_number">
+          <field name="NUM">238</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <!-- 使用到的积木 -->
+  <category name="YaK math" colour="220">
+    <block type="math_number"></block>
+    <block type="yak_math_random"></block>
+    <block type="yak_math_random_mx"></block>
+    <block type="yak_constants"></block>
+    <block type="yak_environment_width_height"></block>
+    <block type="yak_event_mouse_constants"></block>
+    <block type="yak_math_sin"></block>
+    <block type="yak_math_cos"></block>
+    <block type="yak_math_radians"></block>
+    <block type="math_arithmetic">
+      <value name="A">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="B">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yak_math_pow"></block>
+    <block type="yak_math_abs"></block>
+    <block type="yak_math_createVector2"></block>
+  </category>
+  <category name="YaK List" colour="100">
+    <block type="math_random_int">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="lists_create_with">
+      <mutation items="0"></mutation>
+    </block>
+    <block type="lists_create_with"></block>
+    <block type="lists_repeat">
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">5</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf">
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_getIndex">
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_setIndex">
+      <value name="LIST">
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_getSublist">
+      <value name="LIST">
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_split">
+      <value name="DELIM">
+        <shadow type="text">
+          <field name="TEXT">,</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="lists_sort"></block>
+  </category>
+  <category name="YaK Loops" colour="120">
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_whileUntil"></block>
+    <block type="controls_for">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+      <value name="BY">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_forEach"></block>
+    <block type="controls_flow_statements"></block>
+  </category>
+  <category name="YaK Logic" colour="210">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean"></block>
+    <block type="logic_null"></block>
+    <block type="logic_ternary"></block>
+  </category>
+  <category name="YaK Image" colour="150">
+    <block type="yak_image_loadImage">
+      <value name="v_loadImage">
+        <block type="text"></block>
+      </value>
+    </block>
+    <block type="yak_image_image"></block>
+    <block type="yak_image_get"></block>
+    <block type="yak_event_keyPressed"></block>
+    <block type="yak_typography_text3"></block>
+    <block type="yak_typography_textSize"></block>
+  </category>
+  <category name="Variable" colour="300" custom="VARIABLE" name="Variables"></category>
+  <category name="Function" colour="290" custom="PROCEDURE" name="Functions"></category>
+</xml>
+<xml id="blocklyDefault" style="display:none">
+  <block type="yak_structure_setup" inline="true" x="180" y="60">
+    <statement name="DO">
+      <block type="yak_rendering_createCanvas" inline ="true">
+        <value name="v_width">
+          <block type="math_number">
+            <field name="NUM">720</field>
+          </block>
+        </value>
+        <value name="v_height">
+          <block type="math_number">
+            <field name="NUM">400</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="yak_structure_draw" inline="true">
+        <statement name="DO">
+          <block type ="yak_color_background_color" inline="true">
+            <value name="v_background">
+              <block type="math_number">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+            <next>
+              <block type="yak_shape_ellipse" inline="true">
+                <value name="position_x">
+                  <block type="math_number">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <value name="position_y">
+                  <block type="math_number">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <value name="width">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <value name="height">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
+<script>
+  var code;
+  var sketchFrame = document.getElementById('sketchFrame');
+  var workspace = Blockly.inject('blocklyDiv',
+      {toolbox: document.getElementById('toolbox')});
+  var defaultBlocks = document.getElementById('blocklyDefault');
+  Blockly.Xml.domToWorkspace(defaultBlocks, workspace);
+  function myUpdateFunction(event) {
+    var languageDropdown = document.getElementById('languageDropdown');
+    var languageSelection = languageDropdown.options[languageDropdown.selectedIndex].value;
+    var codeDiv = document.getElementById('codeDiv');
+    var codeHolder = document.createElement('pre');
+    codeHolder.className = 'prettyprint but-not-that-pretty';
+    var code = document.createTextNode(Blockly[languageSelection].workspaceToCode(workspace));
+    codeHolder.appendChild(code);
+    codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
+    prettyPrint();
+  }
+  workspace.addChangeListener(myUpdateFunction);
+  function executeBlockCode() {
+      sketchFrame.onload = function () {
+          code = Blockly.JavaScript.workspaceToCode(workspace);
+          code += '\n  function windowResized() {\n' +
+              'resizeCanvas(windowWidth, windowHeight);\n'+
+              '}';
+
+          code += '\n new p5();\n';
+          var userScript = sketchFrame.contentWindow.document.createElement('script');
+          userScript.type = 'text/javascript';
+          userScript.text = code;
+          userScript.async = false;
+          sketchFrame.contentWindow.document.body.appendChild(userScript);
+      };
+      $('#sketchFrame').attr('src', $('#sketchFrame').attr('src'));
+  }
+  
+  document.getElementById('playButton').addEventListener('click', executeBlockCode);
+</script>
+</body>
