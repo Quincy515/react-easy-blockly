@@ -15,4 +15,10 @@ node :
 [ariadne](https://github.com/melbings/ariadne/blob/205ebd53cfda94c76f72a202b446499502261127/src/app/js/Components/BlocklyComponent.js)
 
 
-vscode_sync:  git-gist - 1b853fdbfec10a9a1bf48f6a024b6e57669fd29c
+vscode settings_sync:  
+
+Sync : Upload Complete. 
+
+GIST ID : 89d3721850ce551f449527dc8d6f8f13 . 
+
+Please copy and use this ID in other machines to download settings.
